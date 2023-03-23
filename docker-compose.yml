@@ -1,0 +1,7 @@
+services:
+  btdp_python_test:
+    image: 228746577174.dkr.ecr.us-east-1.amazonaws.com/mwalbeck/python-poetry:1.4.1-3.10
+    entrypoint: /bin/bash -c
+    volumes:
+      - .:/repo
+    working_dir: /repo/clock-worker

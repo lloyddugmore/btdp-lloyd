@@ -1,0 +1,6 @@
+steps:
+  - label: ":python-black: Audit and test python worker"
+    plugins:
+      - docker-compose#v3.0.3:
+          run: btdp_python_test
+          command: [ './test.sh' ]

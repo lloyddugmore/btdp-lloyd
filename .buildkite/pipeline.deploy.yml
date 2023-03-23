@@ -1,0 +1,22 @@
+steps:
+  - label: ":terraform: Terraform plan"
+    agents:
+      queue: ${QUEUE}
+    env:
+      TERRAFORM_VERSION: "1.3.7"
+    commands:
+      - "~/tf/init.sh"
+      - "~/tf/plan.sh"
+
+  - wait
+
+  - block: ":rocket: Deploy infrastructure plan (remember to review the plan)!"
+
+  - label: ":terraform: Terraform apply"
+    agents:
+      queue: ${QUEUE}
+    env:
+      TERRAFORM_VERSION: "1.3.7"
+    commands:
+      - "~/tf/init.sh"
+      - "~/tf/apply.sh"
